@@ -4,18 +4,40 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 
 ## List of Pages
 
-[👉🏾👉🏾👉🏾 List the pages you expect to have in your app, with a ⭐ next to pages you have wireframed]
+⭐ Game library page
+⭐ Item management page (per game)
+⭐ Universal loadout page
+⭐ Modals:
+  * Add game
+  * Add item
+  * Edit item
+  * View/Manage item
+  * Add loadout
 
-## Wireframe 1: [page title]
+## Wireframe 1: Game library page
 
-[👉🏾👉🏾👉🏾 include wireframe 1]
+<img src='../wireframes/game-library.png'>
 
-## Wireframe 2: [page title]
+## Wireframe 2: Item management page
 
-[👉🏾👉🏾👉🏾 include wireframe 2]
+<img src='../wireframes/item-management1.png'>
 
-## Wireframe 3: [page title]
+## Wireframe 3: Universal loadout page
 
-[👉🏾👉🏾👉🏾 include wireframe 3]
+<img src='../wireframes/universal-loadouts.png'>
 
-[👉🏾👉🏾👉🏾 include more wireframes as desired]
+## Modals
+### Add game
+<img src='../wireframes/add-game.png'>
+
+### Add item
+<img src='../wireframes/add-item.png'>
+
+### Edit item
+<img src='../wireframes/edit-item.png'>
+
+### View/Manage item
+<img src='../wireframes/item-management2.png'>
+
+### Add loadout
+<img src='../wireframes/add-loadout.png'>

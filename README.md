@@ -82,38 +82,22 @@ The app gracefully handles errors by showing user-friendly feedback when actions
 
 1. Clone the repository:
    ```bash
-   git clone [your-repo-link]
+   git clone https://github.com/web103-group7/gamevault.git
    ```
 
 2. Move into the project folder:
    ```bash
-   cd [your-repo-name]
+   cd gamevault
    ```
 
-3. Install backend dependencies:
+3. Install dependencies:
    ```bash
-   cd server
    npm install
    ```
+4. Set up environment variables for the server, including your PostgreSQL database connection.
 
-4. Install frontend dependencies:
+5. Start the frontend app and backend server:
    ```bash
-   cd ../client
-   npm install
-   ```
-
-5. Set up environment variables for the server, including your PostgreSQL database connection.
-
-6. Start the backend server:
-   ```bash
-   cd server
    npm run dev
    ```
-
-7. Start the frontend app:
-   ```bash
-   cd client
-   npm run dev
-   ```
-
-8. Open the local development URL shown in the terminal to view the app.
+6. Open the local development URL shown in the terminal to view the app.

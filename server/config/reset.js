@@ -5,8 +5,8 @@ async function createDatabase() {
     const createGamesTableQuery = `
     CREATE TABLE IF NOT EXISTS games (
         game_id SERIAL PRIMARY KEY,
-        title VARCHAR(20) NOT NULL,
-        genre VARCHAR(20) NOT NULL,
+        title VARCHAR(255) NOT NULL,
+        genre VARCHAR(255) NOT NULL,
         date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     `
@@ -16,9 +16,9 @@ async function createDatabase() {
     CREATE TABLE IF NOT EXISTS items (
         item_id SERIAL PRIMARY KEY,
         game_id INTEGER REFERENCES games(game_id),
-        name VARCHAR(20) NOT NULL,
-        type VARCHAR(20),
-        rarity VARCHAR(20),
+        name VARCHAR(255) NOT NULL,
+        type VARCHAR(255),
+        rarity VARCHAR(255),
         quantity INTEGER,
         power INTEGER,
         description TEXT,
@@ -30,26 +30,39 @@ async function createDatabase() {
     const createLoadoutsTableQuery = `
     CREATE TABLE IF NOT EXISTS loadouts (
         loadout_id SERIAL PRIMARY KEY,
-        name VARCHAR(20) NOT NULL,
+        name VARCHAR(255) NOT NULL,
         description TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     `
     const dropLoadoutsTableQuery = 'DROP TABLE IF EXISTS loadouts;'
 
+    const createLoadoutItemsTableQuery = `
+    CREATE TABLE IF NOT EXISTS loadout_items (
+        loadout_id INTEGER REFERENCES loadouts(loadout_id) ON DELETE CASCADE,
+        item_id INTEGER REFERENCES items(item_id) ON DELETE CASCADE,
+        PRIMARY KEY (loadout_id, item_id)
+    );
+    `
+    const dropLoadoutItemsTableQuery = 'DROP TABLE IF EXISTS loadout_items;'
+
     try {
+        await pool.query(dropLoadoutItemsTableQuery)
         await pool.query(dropItemsTableQuery)
         await pool.query(dropLoadoutsTableQuery)
         await pool.query(dropGamesTableQuery)
         
         await pool.query(createGamesTableQuery)
-        console.log('Table "Games" is ready.')
+        console.log('Table "games" is ready.')
 
         await pool.query(createItemsTableQuery)
-        console.log('Table "Items" is ready.')
+        console.log('Table "items" is ready.')
         
         await pool.query(createLoadoutsTableQuery)
-        console.log('Table "Loadouts" is ready.')
+        console.log('Table "loadouts" is ready.')
+
+        await pool.query(createLoadoutItemsTableQuery)
+        console.log('Table "loadout_items" is ready.')
         
         console.log('Database created successfully! ☺︎')
     }

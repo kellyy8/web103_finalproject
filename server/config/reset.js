@@ -1,5 +1,6 @@
 import pool from './database.js'
 import './dotenv.js'
+import games from '../data/sample.js'
 
 async function createDatabase() {
     const createGamesTableQuery = `
@@ -7,6 +8,7 @@ async function createDatabase() {
         game_id SERIAL PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
         genre VARCHAR(255) NOT NULL,
+        image TEXT,
         date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     `
@@ -54,6 +56,16 @@ async function createDatabase() {
         
         await pool.query(createGamesTableQuery)
         console.log('Table "games" is ready.')
+
+        const insertGameQuery = `
+        INSERT INTO games (title, genre, image)
+        VALUES ($1, $2, $3);
+        `
+
+        for (const game of games) {
+            await pool.query(insertGameQuery, [game.title, game.genre, game.image])
+        }
+        console.log('Sample games seeded successfully.')
 
         await pool.query(createItemsTableQuery)
         console.log('Table "items" is ready.')

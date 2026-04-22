@@ -13,7 +13,7 @@ export default function GameCard ({ gameId, title, genre, date, image, itemCount
                 <div className='game-card-content'>
                     <div className='game-card-header'>
                         <h3>{title}</h3>
-                        <span className='game-card-genre'>{genre}</span>
+                        {genre && <span className='game-card-genre'>{genre}</span>}
                     </div>
                     <div className='game-card-footer'>
                         <p>{itemCount} {itemLabel}</p>

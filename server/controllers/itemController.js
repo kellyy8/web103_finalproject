@@ -43,7 +43,6 @@ async function addItem(req, res) {
             Number.isNaN(normalizedPower) ? 0 : normalizedPower,
             description
         ])
-        console.log(`Added item to inventory of game with id: ${gameId} successfully! ☺︎`)
         return res.status(201).json(result.rows[0])
     }
     catch (error) {

@@ -21,6 +21,30 @@ async function getGames (req, res) {
     }
 }
 
+// GET /games/:id - get game with id `id`
+async function getSingleGame (req, res) {
+    const { id } = req.params
+    try {
+        const query = `
+        SELECT
+            g.*,
+            COUNT(i.item_id)::int AS item_count
+        FROM games g
+        LEFT JOIN items i ON i.game_id = g.game_id
+        WHERE g.game_id = $1
+        GROUP BY g.game_id;
+        `
+        const result = await pool.query(query, [id])
+        if (result.rowCount === 0) {
+            return res.status(404).json({ error: `Game with id ${id} does not exist.` })
+        }
+        return res.status(200).json(result.rows[0])
+    }
+    catch (error) {
+        return res.status(500).json({ error: `Failed to fetch game with id ${id}: ${error.message}` })
+    }
+}
+
 // POST /games - add new game to database
 async function addGame (req, res) {
     try {
@@ -48,5 +72,6 @@ async function addGame (req, res) {
 
 export {
     getGames,
+    getSingleGame,
     addGame
 }

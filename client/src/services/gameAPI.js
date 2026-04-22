@@ -16,6 +16,22 @@ async function getGames() {
     }
 }
 
+async function getSingleGame(id) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/games/${id}`, { method: 'GET' })
+        if (!response.ok) {
+            const errorText = await response.text()
+            throw new Error(errorText || `Failed to fetch game with id ${id}`)
+        }
+        console.log(`Fetched game with id ${id} from database successfully! ☺︎`)
+        return response.json()
+    }
+    catch (error) {
+        console.error(error.message || `Failed to fetch game with id ${id} from database. ☹︎`)
+        return null
+    }
+}
+
 async function addGame(title, genre, imageURL) {
     try {
         const response = await fetch(`${API_BASE_URL}/games`, {
@@ -40,5 +56,6 @@ async function addGame(title, genre, imageURL) {
 
 export {
     getGames,
+    getSingleGame,
     addGame
 }

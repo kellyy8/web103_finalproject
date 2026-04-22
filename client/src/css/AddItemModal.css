@@ -1,0 +1,192 @@
+.add-item-modal-root {
+	display: grid;
+	place-items: center;
+	padding: 1.5rem;
+}
+
+.add-item-modal-root .MuiBackdrop-root {
+	background: rgba(9, 13, 24, 0.55);
+	backdrop-filter: blur(2px);
+}
+
+.add-item-modal {
+	width: min(52rem, 100%);
+	max-height: calc(100dvh - 3rem);
+	overflow-y: auto;
+	background: #ffffff;
+	border: 1px solid #d5d8df;
+	border-radius: 1rem;
+	box-shadow: 0 28px 60px rgba(0, 0, 0, 0.22);
+	padding: 2.25rem 2.35rem 2rem;
+	color: #16181d;
+}
+
+.add-item-modal-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.add-item-modal h1 {
+	margin: 0;
+	font-size: clamp(1.8rem, 2.8vw, 2.35rem);
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	color: #111318;
+}
+
+.add-item-modal h2 {
+	margin: 0.6rem 0 2rem;
+	max-width: 38rem;
+	font-size: 1.03rem;
+	font-weight: 500;
+	line-height: 1.35;
+	color: #70748a;
+}
+
+.add-item-modal-close {
+	border: 0;
+	background: transparent;
+	color: #5e6478;
+	font-size: 2rem;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0;
+	margin: -0.25rem 0 0;
+    width: 5%;
+}
+
+.add-item-modal-close:hover {
+	color: #1a1f2f;
+}
+
+.add-item-modal-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem 1.15rem;
+}
+
+.add-item-modal-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.add-item-modal-field label {
+	font-size: 0.9rem;
+	font-weight: 800;
+	letter-spacing: 0;
+	color: #13151a;
+}
+
+.add-item-modal-field input,
+.add-item-modal-field select,
+.add-item-modal-field textarea {
+	width: 100%;
+	border-radius: 0.85rem;
+	border: 1px solid #d7dbe3;
+	background: #f4f5f8;
+	color: #1a1e28;
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 0.85rem 1rem;
+	outline: none;
+	transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.add-item-modal-name-input {
+	border: 2px solid #afb3be;
+	box-shadow: 0 0 0 2px rgba(20, 25, 36, 0.08);
+}
+
+.add-item-modal-field textarea {
+	min-height: 6.5rem;
+	resize: vertical;
+}
+
+.add-item-modal-field input::placeholder,
+.add-item-modal-field textarea::placeholder {
+	color: #8a8fa1;
+}
+
+.add-item-modal-field input:focus,
+.add-item-modal-field select:focus,
+.add-item-modal-field textarea:focus {
+	border-color: #9ea7bd;
+	box-shadow: 0 0 0 3px rgba(125, 136, 166, 0.25);
+}
+
+.add-item-modal-error {
+	margin: -1rem 0 0;
+	color: #b9274d;
+	font-size: 0.86rem;
+	font-weight: 600;
+}
+
+.add-item-modal-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.8rem;
+	margin-top: 1.25rem;
+}
+
+.add-item-modal-actions button {
+	width: auto;
+	margin: 0;
+	border-radius: 0.85rem;
+	font-weight: 700;
+	padding: 0.85rem 1.6rem;
+	cursor: pointer;
+}
+
+.add-item-modal-button-secondary {
+	border: 1px solid #d5d8df;
+	background: #ffffff;
+	color: #1b212f;
+}
+
+.add-item-modal-button-secondary:hover {
+	background: #f4f6fb;
+}
+
+.add-item-modal-button-primary {
+	border: 1px solid #03061a;
+	background: #02041d;
+	color: #f7f9ff;
+}
+
+.add-item-modal-button-primary:hover {
+	background: #111635;
+}
+
+@media (max-width: 768px) {
+	.add-item-modal-root {
+		padding: 0.9rem;
+	}
+
+	.add-item-modal {
+		width: 100%;
+		padding: 1.25rem 1rem;
+		border-radius: 0.8rem;
+	}
+
+	.add-item-modal h2 {
+		margin-bottom: 1.35rem;
+	}
+
+	.add-item-modal-grid {
+		grid-template-columns: 1fr;
+		gap: 0.4rem;
+	}
+
+	.add-item-modal-actions {
+		margin-top: 1.1rem;
+	}
+
+	.add-item-modal-actions button {
+		flex: 1;
+		text-align: center;
+	}
+}

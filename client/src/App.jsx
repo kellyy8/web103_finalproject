@@ -6,6 +6,7 @@ import GameInventory from './pages/GameInventory'
 import UniversalLoadouts from './pages/UniversalLoadouts'
 import './App.css'
 
+// Link pages together
 const App = () => {
   let element = useRoutes([
     {

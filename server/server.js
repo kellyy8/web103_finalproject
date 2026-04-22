@@ -6,6 +6,7 @@ import cors from 'cors'
 
 // TODO: Import routers
 import gameRouter from './routes/gameRouter.js'
+import itemRouter from './routes/itemRouter.js'
 
 dotenv.config()
 
@@ -26,6 +27,7 @@ else if (process.env.NODE_ENV === 'production') {
 
 // TODO: Sync routers with endpoints
 app.use('/games', gameRouter)
+app.use('/inventory', itemRouter)
 
 if (process.env.NODE_ENV === 'production') {
     app.get('/*', (_, res) =>

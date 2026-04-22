@@ -1,8 +1,109 @@
-/* TODO: Placeholder styles. Update to match wireframe. */
-nav {
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 100vw;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 20px;
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 1.15rem 2.5rem;
+    border-bottom: 1px solid rgba(24, 31, 45, 0.08);
+    background: rgba(245, 247, 250, 0.88);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.45) inset;
+}
+
+.navigation-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: #0f1724;
+    text-decoration: none;
+    flex: 0 0 auto;
+}
+
+.navigation-brand-mark {
+    width: 2.35rem;
+    height: 2.35rem;
+    color: #1d4ed8;
+    flex: 0 0 auto;
+}
+
+.navigation-brand h1 {
+    margin: 0;
+    font-size: clamp(1.65rem, 2vw, 2.05rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+    color: #0f1724;
+}
+
+.navigation-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.25rem;
+    color: #111827;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: color 160ms ease, transform 160ms ease, opacity 160ms ease;
+}
+
+.navigation-link:hover {
+    color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.navigation-link-icon {
+    width: 1.45rem;
+    height: 1.45rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: 0 0 auto;
+}
+
+.navigation-link-icon-library {
+    width: 1.35rem;
+    height: 1.35rem;
+}
+
+.navigation-link-icon-loadouts {
+    width: 1.45rem;
+    height: 1.45rem;
+}
+
+@media (max-width: 768px) {
+    .navigation {
+        padding: 1rem 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navigation-brand {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navigation-links {
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .navigation-link {
+        font-size: 1rem;
+    }
 }

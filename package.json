@@ -8,6 +8,9 @@
     "build": "cd client && vite build"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^9.0.0",
     "@picocss/pico": "^1.5.7",
     "concurrently": "^7.6.0",
     "cors": "^2.8.6",

@@ -17,10 +17,33 @@ async function getGames (req, res) {
         return res.status(200).json(result.rows)
     }
     catch (error) {
-        return res.status(500).json({ error: `Failed to fetch games: ${error}` })
+        return res.status(500).json({ error: `Failed to fetch games: ${error.message}` })
+    }
+}
+
+// POST /games - add new game to database
+async function addGame (req, res) {
+    try {
+        const { title, genre, imageURL } = req.body
+        if (!title) {
+            return res.status(400).json({ error: 'Game title is required.'})
+        }
+
+        const query = `
+        INSERT INTO games (title, genre, image)
+        VALUES ($1, $2, $3)
+        RETURNING *;
+        `
+        const result = await pool.query(query, [title, genre, imageURL])
+        console.log('Added game to database successfully! ☺︎')
+        return res.status(201).json(result.rows[0])
+    }
+    catch (error) {
+        return res.status(500).json({ error: `Failed to add game: ${error.message}` })
     }
 }
 
 export {
-    getGames
+    getGames,
+    addGame
 }

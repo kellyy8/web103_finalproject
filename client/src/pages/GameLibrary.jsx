@@ -3,12 +3,18 @@ import Searchbar from '../components/Searchbar'
 import GameCard from '../components/GameCard'
 import { getGames } from '../services/gameAPI'
 import '../css/GameLibrary.css'
+import AddGameModal from '../components/AddGameModal'
 
 export default function GameLibrary () {
     const [allGames, setAllGames] = useState([])
     const [games, setGames] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
+
+    // For AddGameModal
+    const [open, setOpen] = useState(false)
+    const handleOpen = () => { setOpen(true) }
+    const handleClose = () => { setOpen(false) }
 
     useEffect(() => {
         // Use `getGames` API to fetch games from database
@@ -47,8 +53,16 @@ export default function GameLibrary () {
                     allGames={allGames}
                     setGames={setGames}
                 />
-                <button className='game-library-add-button'>+ Add Game</button>
+                <button className='game-library-add-button' onClick={handleOpen}>+ Add Game</button>
             </div>
+
+            {open &&
+                <AddGameModal
+                    open={open}
+                    handleOpen={handleOpen}
+                    handleClose={handleClose}
+                />
+            }
 
             {(games && games.length != 0) ?
                 <div className='game-library-grid'>

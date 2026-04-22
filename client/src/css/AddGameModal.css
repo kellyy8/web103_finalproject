@@ -1,0 +1,168 @@
+.add-game-modal-root {
+	display: grid;
+	place-items: center;
+	padding: 1.5rem;
+    width: 50%;
+    justify-self: center;
+}
+
+.add-game-modal-root .MuiBackdrop-root {
+	background: rgba(9, 13, 24, 0.55);
+	backdrop-filter: blur(2px);
+}
+
+.add-game-modal {
+	width: min(52rem, 100%);
+	max-height: calc(100dvh - 3rem);
+	overflow-y: auto;
+	background: #ffffff;
+	border: 1px solid #d5d8df;
+	border-radius: 1rem;
+	box-shadow: 0 28px 60px rgba(0, 0, 0, 0.22);
+	padding: 2.25rem 2.35rem 2rem;
+	color: #16181d;
+}
+
+.add-game-modal-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	/* gap: 1rem; */
+}
+
+.add-game-modal h1 {
+	margin: 0;
+	font-size: clamp(1.8rem, 2.8vw, 2.35rem);
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	color: #111318;
+}
+
+.add-game-modal h2 {
+	margin: 0.6rem 0 2rem;
+	max-width: 38rem;
+	font-size: 1.03rem;
+	font-weight: 500;
+	line-height: 1.35;
+	color: #70748a;
+}
+
+.add-game-modal-close {
+	border: 0;
+	background: transparent;
+	color: #5e6478;
+	font-size: 2rem;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0;
+	margin: -0.25rem 0 0;
+    width: 5%;
+}
+
+.add-game-modal-close:hover {
+	color: #1a1f2f;
+}
+
+.add-game-modal-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-bottom: 1.2rem;
+}
+
+.add-game-modal-field label {
+	font-size: 0.9rem;
+	font-weight: 800;
+	letter-spacing: 0;
+	color: #13151a;
+}
+
+.add-game-modal-field input {
+	width: 100%;
+	border-radius: 0.9rem;
+	border: 2px solid #d7dbe3;
+	background: #f4f5f8;
+	color: #1a1e28;
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 0.85rem 1rem;
+	outline: none;
+	transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.add-game-modal-field input::placeholder {
+	color: #8a8fa1;
+}
+
+.add-game-modal-field input:focus {
+	border-color: #9ea7bd;
+	box-shadow: 0 0 0 3px rgba(125, 136, 166, 0.25);
+}
+
+.add-game-modal-error {
+	margin: -1rem 0 0;
+	color: #b9274d;
+	font-size: 0.86rem;
+	font-weight: 600;
+}
+
+.add-game-modal-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.8rem;
+	margin-top: 1.75rem;
+}
+
+.add-game-modal-actions button {
+	width: auto;
+	margin: 0;
+	border-radius: 0.85rem;
+	font-weight: 700;
+	padding: 0.85rem 1.6rem;
+	cursor: pointer;
+}
+
+.add-game-modal-button-secondary {
+	border: 1px solid #d5d8df;
+	background: #ffffff;
+	color: #1b212f;
+}
+
+.add-game-modal-button-secondary:hover {
+	background: #f4f6fb;
+}
+
+.add-game-modal-button-primary {
+	border: 1px solid #03061a;
+	background: #02041d;
+	color: #f7f9ff;
+}
+
+.add-game-modal-button-primary:hover {
+	background: #111635;
+}
+
+@media (max-width: 768px) {
+	.add-game-modal-root {
+		padding: 0.9rem;
+	}
+
+	.add-game-modal {
+		width: 100%;
+		padding: 1.25rem 1rem;
+		border-radius: 0.8rem;
+	}
+
+	.add-game-modal h2 {
+		margin-bottom: 1.35rem;
+	}
+
+	.add-game-modal-actions {
+		margin-top: 1.25rem;
+	}
+
+	.add-game-modal-actions button {
+		flex: 1;
+		text-align: center;
+	}
+}

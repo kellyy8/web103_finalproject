@@ -16,7 +16,10 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': {
+      '/games': {
+        target: 'http://localhost:3000'
+      },
+      '/inventory': {
         target: 'http://localhost:3000'
       }
     }

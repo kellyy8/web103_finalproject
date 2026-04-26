@@ -2,9 +2,9 @@
   "name": "gamevault",
   "type": "module",
   "scripts": {
-    "predev": "node server/config/reset.js",
+    "predev": "if [ \"$NODE_ENV\" != \"production\" ]; then node server/config/reset.js; fi",
     "dev": "concurrently \"cd client && vite\" \"cd server && nodemon server\"",
-    "start": "cd server && node server",
+    "start": "node server/server.js",
     "build": "cd client && vite build"
   },
   "dependencies": {
@@ -12,6 +12,7 @@
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^9.0.0",
     "@picocss/pico": "^1.5.7",
+    "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^7.6.0",
     "cors": "^2.8.6",
     "dotenv": "^16.0.3",
@@ -22,12 +23,11 @@
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.9.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "vite": "^5.4.19"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^3.1.0",
-    "vite": "^8.0.8"
+    "@types/react-dom": "^18.0.11"
   }
 }

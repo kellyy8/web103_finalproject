@@ -1,4 +1,16 @@
 const API_BASE_URL = `http://localhost:3000`
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
+
+export async function getAllItems() {
+  const response = await fetch(`${BASE_URL}/api/items`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || "Failed to fetch items");
+  }
+
+  return data;
+}
 
 async function addItem(gameId, name, type, rarity, quantity, power, description) {
     try {
